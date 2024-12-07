@@ -2,6 +2,7 @@
   "name": "wagaya",
   "version": "0.1.0",
   "private": true,
+  "node": "20.12.2",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
