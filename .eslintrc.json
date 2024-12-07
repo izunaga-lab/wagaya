@@ -1,3 +1,28 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next", "next/core-web-vitals", "next/typescript"],
+  "plugins": ["unused-imports"],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+        "pathGroups": [
+          {
+            "pattern": "~**/**",
+            "group": "parent",
+            "position": "before"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-useless-path-segments": "error",
+    "import/no-duplicates": "error",
+    "import/no-unresolved": "error",
+    "import/newline-after-import": "error",
+    "unused-imports/no-unused-imports": "error"
+  }
 }
