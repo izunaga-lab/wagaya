@@ -1,4 +1,3 @@
-import nextConfig from "@/next.config.mjs";
+import nextConfig from '@/next.config.mjs'
 
-export const basePath = nextConfig.basePath || "";
-
+export const basePath = nextConfig.basePath || ''
