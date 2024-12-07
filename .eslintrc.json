@@ -23,6 +23,7 @@
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
     "import/newline-after-import": "error",
-    "unused-imports/no-unused-imports": "error"
+    "unused-imports/no-unused-imports": "error",
+    "no-console": "error"
   }
 }

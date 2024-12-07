@@ -10,7 +10,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:ts": "eslint --fix --ext .ts,.tsx ."
   },
   "dependencies": {
     "next": "15.0.4",
