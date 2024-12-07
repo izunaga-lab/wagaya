@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format:ts": "eslint --fix --ext .ts,.tsx ."
+    "format:ts": "eslint --fix --ext .ts,.tsx .",
+    "format:prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
     "next": "15.0.4",
