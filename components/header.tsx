@@ -4,6 +4,8 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
+import basePath from '@/app/lib/base-path'
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -12,7 +14,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold">
-            伊豆永ゼミ
+            <img src={`${basePath}/logo.png`} alt="伊豆永ゼミ" width={100} />
           </Link>
           <div className="hidden md:flex space-x-6">
             <Link href="/" className="nav-link">
