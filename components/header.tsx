@@ -12,22 +12,22 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold">
-            OR研究ゼミ
+            伊豆永ゼミ
           </Link>
           <div className="hidden md:flex space-x-6">
-            <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/" className="nav-link">
               ホーム
             </Link>
-            <Link href="/research" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/research" className="nav-link">
               研究テーマ
             </Link>
-            <Link href="/members" className="text-gray-600 hover:text-gray-900 transition-colors">
-              メンバー
+            <Link href="/news" className="nav-link">
+              お知らせ
             </Link>
-            <Link href="/publications" className="text-gray-600 hover:text-gray-900 transition-colors">
-              出版物
+            <Link href="/articles" className="nav-link">
+              記事
             </Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/contact" className="nav-link">
               お問い合わせ
             </Link>
           </div>
@@ -39,19 +39,19 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/" className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/" className="block px-3 py-2 nav-link">
               ホーム
             </Link>
-            <Link href="/research" className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/research" className="block px-3 py-2 nav-link">
               研究テーマ
             </Link>
-            <Link href="/members" className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors">
-              メンバー
+            <Link href="/news" className="block px-3 py-2 nav-link">
+              お知らせ
             </Link>
-            <Link href="/publications" className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors">
-              出版物
+            <Link href="/articles" className="block px-3 py-2 nav-link">
+              記事
             </Link>
-            <Link href="/contact" className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/contact" className="block px-3 py-2 nav-link">
               お問い合わせ
             </Link>
           </div>
