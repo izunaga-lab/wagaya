@@ -87,6 +87,9 @@ importers:
       storybook:
         specifier: 8.4.7
         version: 8.4.7(prettier@3.4.2)
+      storybook-addon-pseudo-states:
+        specifier: ^4.0.2
+        version: 4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.4.2))
       tailwindcss:
         specifier: ^3.4.16
         version: 3.4.16
@@ -3711,6 +3714,11 @@ packages:
 
   stackframe@1.3.4:
     resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
+
+  storybook-addon-pseudo-states@4.0.2:
+    resolution: {integrity: sha512-dTHkeq4VzqIrJfR8k2BHkX190cQ+aYBZUktWNZpDw3N5tJ8IwaRLzf6ZjHDHY6xwDshaNiTO5UkziRE0Ytukkw==}
+    peerDependencies:
+      storybook: ^8.2.0
 
   storybook@8.4.7:
     resolution: {integrity: sha512-RP/nMJxiWyFc8EVMH5gp20ID032Wvk+Yr3lmKidoegto5Iy+2dVQnUoElZb2zpbVXNHWakGuAkfI0dY1Hfp/vw==}
@@ -8362,6 +8370,14 @@ snapshots:
   stable-hash@0.0.4: {}
 
   stackframe@1.3.4: {}
+
+  storybook-addon-pseudo-states@4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.4.2)):
+    dependencies:
+      '@storybook/icons': 1.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      storybook: 8.4.7(prettier@3.4.2)
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   storybook@8.4.7(prettier@3.4.2):
     dependencies:

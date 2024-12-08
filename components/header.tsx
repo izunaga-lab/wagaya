@@ -18,19 +18,19 @@ export default function Header() {
             <Image src={`${basePath}/logo.png`} alt="伊豆永ゼミ" width={100} height={100} />
           </Link>
           <div className="hidden md:flex space-x-6">
-            <Link href="/" className="nav-link">
+            <Link href="/" className="nav-link" id="home-link">
               ホーム
             </Link>
-            <Link href="/research" className="nav-link">
+            <Link href="/research" className="nav-link" id="research-link">
               研究テーマ
             </Link>
-            <Link href="/news" className="nav-link">
+            <Link href="/news" className="nav-link" id="news-link">
               お知らせ
             </Link>
-            <Link href="/articles" className="nav-link">
+            <Link href="/articles" className="nav-link" id="articles-link">
               記事
             </Link>
-            <Link href="/contact" className="nav-link">
+            <Link href="/contact" className="nav-link" id="contact-link">
               お問い合わせ
             </Link>
           </div>
