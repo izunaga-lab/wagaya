@@ -6,7 +6,7 @@ interface SectionTitleProps {
   title: string
 }
 
-export function SectionTitle({ title }: SectionTitleProps) {
+export default function SectionTitle({ title }: SectionTitleProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
