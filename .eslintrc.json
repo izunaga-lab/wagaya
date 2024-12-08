@@ -1,11 +1,26 @@
 {
-  "extends": ["next", "next/core-web-vitals", "next/typescript"],
-  "plugins": ["unused-imports"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:storybook/recommended"
+  ],
+  "plugins": [
+    "unused-imports"
+  ],
   "rules": {
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
         "pathGroups": [
           {
             "pattern": "~**/**",
