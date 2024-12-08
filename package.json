@@ -11,16 +11,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "run-p lint:*",
-    "lint:ts": "eslint --ext 'app/**/*.{js,jsx,ts,tsx}'",
+    "lint:ts": "next lint",
     "lint:prettier": "prettier --check 'app/**/*.{js,jsx,ts,tsx}'",
     "format": "run-p format:*",
-    "format:ts": "eslint --fix --ext 'app/**/*.{js,jsx,ts,tsx}'",
+    "format:ts": "next lint --fix",
     "format:prettier": "prettier --write 'app/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
+    "lucide-react": "^0.468.0",
     "next": "15.0.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.13.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",

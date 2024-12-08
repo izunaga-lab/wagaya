@@ -1,69 +1,75 @@
-import Image from 'next/image'
+import Link from 'next/link'
 
-import { basePath } from './lib/base-path'
+import { SectionTitle } from '@/components/section-title'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image className="dark:invert" src={`${basePath}/next.svg`} alt="Next.js logo" width={180} height={38} priority />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{' '}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="container mx-auto px-4 py-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-4">オペレーションズリサーチ研究ゼミ</h1>
+        <p className="text-xl text-gray-600 mb-8">最適化と意思決定の科学を探求する</p>
+        <div className="relative h-96 mb-8"></div>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image className="dark:invert" src={`${basePath}/vercel.svg`} alt="Vercel logomark" width={20} height={20} />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="mb-16">
+        <SectionTitle title="研究テーマ" />
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            { title: '線形計画法と整数計画法', icon: '📊' },
+            { title: 'ネットワーク最適化', icon: '🕸️' },
+            { title: '確率的最適化', icon: '🎲' },
+            { title: '機械学習とOR', icon: '🤖' },
+          ].map((theme, index) => (
+            <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md transition-transform hover:scale-105">
+              <div className="text-4xl mb-4">{theme.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{theme.title}</h3>
+              <p className="text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src={`${basePath}/file.svg`} alt="File icon" width={16} height={16} />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src={`${basePath}/window.svg`} alt="Window icon" width={16} height={16} />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src={`${basePath}/globe.svg`} alt="Globe icon" width={16} height={16} />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="text-center mt-8">
+          <Link
+            href="/research"
+            className="inline-block px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors"
+          >
+            研究テーマの詳細を見る
+          </Link>
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <SectionTitle title="最新のニュース" />
+        <div className="space-y-6">
+          {[
+            { date: '2023/06/15', title: '国際会議INFORMS 2023での研究発表が採択されました' },
+            { date: '2023/05/20', title: '新しい最適化アルゴリズムの論文がJournal of ORに掲載されました' },
+            { date: '2023/04/01', title: '2023年度の新入生歓迎会を開催しました' },
+          ].map((news, index) => (
+            <div key={index} className="flex items-start">
+              <div className="flex-shrink-0 w-24 text-gray-500">{news.date}</div>
+              <div className="flex-grow">
+                <h3 className="text-lg font-semibold">{news.title}</h3>
+                <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <SectionTitle title="研究室の様子" />
+        <div className="grid md:grid-cols-3 gap-4">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="relative h-64 overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105"
+            ></div>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
