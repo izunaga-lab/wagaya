@@ -1,3 +1,5 @@
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+
 import type { Preview } from '@storybook/react'
 import '@/app/globals.css'
 
@@ -13,6 +15,10 @@ const preview: Preview = {
       appDirectory: true,
     },
     layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'reset',
+    },
   },
 }
 
