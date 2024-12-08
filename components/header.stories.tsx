@@ -9,11 +9,11 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type StoryFn = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: StoryFn = {}
 
-export const HoverNavigation: Story = {
+export const HoverNavigation: StoryFn = {
   parameters: {
     pseudo: {
       hover: '#home-link',
@@ -21,7 +21,7 @@ export const HoverNavigation: Story = {
   },
 }
 
-export const Mobile: Story = {
+export const Mobile: StoryFn = {
   parameters: {
     viewport: {
       defaultViewport: 'iphonex',

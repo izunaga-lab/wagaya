@@ -8,9 +8,9 @@ export default {
   component: SectionTitle,
 } satisfies Meta<typeof SectionTitle>
 
-type Story = StoryObj<typeof meta>
+type StoryFn = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Default: StoryFn = {
   args: {
     title: '研究テーマ',
   },

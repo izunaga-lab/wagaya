@@ -8,6 +8,6 @@ export default {
   component: Footer,
 } satisfies Meta<typeof Footer>
 
-type Story = StoryObj<typeof meta>
+type StoryFn = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: StoryFn = {}
