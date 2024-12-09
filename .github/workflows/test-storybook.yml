@@ -3,7 +3,7 @@ name: Test Storybook
 on: [push]
 
 jobs:
-  test:
+  test-storybook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,7 +27,7 @@ jobs:
       - name: Cache Playwright
         uses: actions/cache@v4
         with:
-          path: /home/runner/.cache
+          path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             playwright-${{ runner.os }}-
