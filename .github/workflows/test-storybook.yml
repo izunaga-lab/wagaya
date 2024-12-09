@@ -36,6 +36,6 @@ jobs:
       - name: Build Storybook
         run: pnpm build-storybook
       - name: Run Storybook Server
-        run: pnpm dlx http-server storybook-static --port 6006 --silent
+        run: pnpm dlx http-server storybook-static --port 6006 --silent &
       - name: Test Storybook
         run: wait-on http://127.0.0.1:6006 && pnpm test-storybook --junit
