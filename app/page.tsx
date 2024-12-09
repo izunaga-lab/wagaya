@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { SectionTitle } from '@/components/section-title'
+import SectionTitle from '@/components/section-title'
 
 export default function Home() {
   return (

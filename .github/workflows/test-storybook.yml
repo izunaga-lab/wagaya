@@ -1,0 +1,41 @@
+name: Test Storybook
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Corepack enable
+        run: corepack enable
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: pnpm
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Cache Playwright
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/.cache
+          key: playwright-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+      - name: Setup Playwright
+        run: pnpm exec playwright install --with-deps
+      - name: Build Storybook
+        run: pnpm build-storybook
+      - name: Run Storybook Server
+        run: pnpm dlx http-server storybook-static --port 6006 --silent &
+      - name: Test Storybook
+        run: pnpm dlx wait-on http://127.0.0.1:6006 && pnpm test-storybook --junit
