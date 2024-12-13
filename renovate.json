@@ -10,12 +10,13 @@
   "additionalBranchPrefix": "{{newVersion}}-",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
-  "enabledManagers": ["github-actions"],
-  "pnpm": {
+  "enabledManagers": ["npm", "github-actions"],
+  "npm": {
     "extends": [
       ":noUnscheduledUpdates",
       "npm:unpublishSafe"
     ],
+    "postUpdateOptions": ["pnpmDedupe"],
     "rangeStrategy": "bump",
     "semanticCommitType": "chore",
     "separateMinorPatch": true,
