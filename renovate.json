@@ -10,7 +10,7 @@
   "additionalBranchPrefix": "{{newVersion}}-",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
-  "enabledManagers": ["pnpm", "github-actions"],
+  "enabledManagers": ["github-actions"],
   "pnpm": {
     "extends": [
       ":noUnscheduledUpdates",
