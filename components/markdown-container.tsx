@@ -5,5 +5,5 @@ type Props = {
 }
 
 export const MarkdownContainer = ({ markdown }: Props) => {
-  return <ReactMarkdown>{markdown}</ReactMarkdown>
+  return <ReactMarkdown className="markdown">{markdown}</ReactMarkdown>
 }
