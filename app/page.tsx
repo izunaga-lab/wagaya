@@ -1,14 +1,24 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import SectionTitle from '@/components/section-title'
+import { basePath } from '@/lib/base-path'
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">オペレーションズリサーチ研究ゼミ</h1>
-        <p className="text-xl text-gray-600 mb-8">最適化と意思決定の科学を探求する</p>
-        <div className="relative h-96 mb-8"></div>
+        <h1 className="text-5xl font-bold mb-4">伊豆永洋一ゼミナール</h1>
+        <p className="text-xl text-gray-600 mb-8">数理最適化と意思決定の科学を探求する</p>
+        <div className="relative h-128 mb-8">
+          <Image
+            src={`${basePath}/research-image.png`}
+            alt="オペレーションズリサーチのイメージ図"
+            quality={100}
+            fill
+            className="object-cover rounded-lg shadow-lg"
+          />
+        </div>
       </section>
 
       <section className="mb-16">
