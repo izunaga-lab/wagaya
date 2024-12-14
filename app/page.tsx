@@ -52,7 +52,7 @@ export default function Home() {
             { date: '2023/05/20', title: '新しい最適化アルゴリズムの論文がJournal of ORに掲載されました' },
             { date: '2023/04/01', title: '2023年度の新入生歓迎会を開催しました' },
           ].map((news, index) => (
-            <div key={index} className="flex items-start">
+            <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-4">
               <div className="flex-shrink-0 w-24 text-gray-500">{news.date}</div>
               <div className="flex-grow">
                 <h3 className="text-lg font-semibold">{news.title}</h3>
