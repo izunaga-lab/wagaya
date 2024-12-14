@@ -11,7 +11,7 @@ type NewsArticle = {
   content: string
 }
 
-export const getAllNews = async (): Promise<NewsArticle[]> => {
+const loadNewsArticles = async (): Promise<NewsArticle[]> => {
   const files = fs.readdirSync(path.join(contentDirectory, 'news'))
   const newsArticles: NewsArticle[] = []
 
@@ -32,6 +32,17 @@ export const getAllNews = async (): Promise<NewsArticle[]> => {
   }
 
   return newsArticles
+}
+
+let allNewsArticles: NewsArticle[]
+export const getAllNews = async (): Promise<NewsArticle[]> => {
+  if (process.env.NODE_ENV === 'production') {
+    allNewsArticles ||= await loadNewsArticles()
+  } else {
+    allNewsArticles = await loadNewsArticles()
+  }
+
+  return allNewsArticles
 }
 
 export const getNewsById = async (id: string): Promise<NewsArticle> => {
