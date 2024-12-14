@@ -1,4 +1,4 @@
 ---
 id: %{id}
-title: %{title} タイトル
+title: %{date} タイトル
 ---
