@@ -15,7 +15,7 @@ export default function Header() {
     <header className="bg-white border-b-2 shadow-sm border-gray-200">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
+          <Link href={sectionTitles.home.path} className="text-2xl font-bold">
             <Image src={`${basePath}/logo.png`} alt="伊豆永ゼミ" width={100} height={100} />
           </Link>
           <div className="hidden md:flex space-x-6">
