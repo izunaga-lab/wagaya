@@ -1,3 +1,3 @@
 import nextConfig from '@/next.config.mjs'
 
-export default nextConfig.basePath || ''
+export const basePath = nextConfig.basePath || ''

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import basePath from '@/lib/base-path'
+import { basePath } from '@/lib/base-path'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
