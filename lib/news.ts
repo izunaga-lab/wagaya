@@ -11,9 +11,9 @@ type NewsArticle = {
   content: string
 }
 
-export const getAllNewsIds = async (): Promise<Array<{ id: string }>> => {
+export const getAllNews = async (): Promise<NewsArticle[]> => {
   const files = fs.readdirSync(path.join(contentDirectory, 'news'))
-  const newsIds: Array<{ id: string }> = []
+  const newsArticles: NewsArticle[] = []
 
   for (const file of files) {
     const filePath = path.join(contentDirectory, 'news', file)
@@ -27,9 +27,18 @@ export const getAllNewsIds = async (): Promise<Array<{ id: string }>> => {
         content,
       }
 
-      newsIds.push({ id: newsArticle.id })
+      newsArticles.push(newsArticle)
     }
   }
 
-  return newsIds
+  return newsArticles
+}
+
+export const getNewsById = async (id: string): Promise<NewsArticle> => {
+  const newsArticles = await getAllNews()
+  const news = newsArticles.find((news) => news.id === id)
+  if (!news) {
+    throw new Error('News not found')
+  }
+  return news
 }
