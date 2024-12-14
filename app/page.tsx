@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
+import MoreLink from '@/components/more-link'
 import SectionTitle from '@/components/section-title'
 import { basePath } from '@/lib/base-path'
+import { sectionTitles } from '@/lib/section-title'
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
       </section>
 
       <section className="mb-16">
-        <SectionTitle title="研究テーマ" />
+        <SectionTitle title={sectionTitles.researchTheme.title} />
         <div className="grid md:grid-cols-2 gap-8">
           {[
             { title: '線形計画法と整数計画法', icon: '📊' },
@@ -40,18 +41,11 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="text-center mt-8">
-          <Link
-            href="/research"
-            className="inline-block px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors"
-          >
-            研究テーマの詳細を見る
-          </Link>
-        </div>
+        <MoreLink path={sectionTitles.researchTheme.path} />
       </section>
 
       <section className="mb-16">
-        <SectionTitle title="最新のニュース" />
+        <SectionTitle title={sectionTitles.news.title} />
         <div className="space-y-6">
           {[
             { date: '2023/06/15', title: '国際会議INFORMS 2023での研究発表が採択されました' },
@@ -67,10 +61,11 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <MoreLink path={sectionTitles.news.path} />
       </section>
 
       <section>
-        <SectionTitle title="研究室の様子" />
+        <SectionTitle title={sectionTitles.article.title} />
         <div className="grid md:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
             <div
@@ -79,6 +74,7 @@ export default function Home() {
             ></div>
           ))}
         </div>
+        <MoreLink path={sectionTitles.article.path} />
       </section>
     </div>
   )
