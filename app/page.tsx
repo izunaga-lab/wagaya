@@ -53,12 +53,13 @@ export default function Home() {
           {getLatestNews(5).then((news) =>
             news.map((news, index) => (
               <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-6">
-                <div className="flex items-center justify-between w-full">
-                  <Link href={`${sectionTitles.news.path}/${news.id}`} className="text-lg hover:underline">
-                    {news.title}
-                  </Link>
+                <Link
+                  href={`${sectionTitles.news.path}/${news.id}`}
+                  className="text-lg hover:underline flex items-center justify-between w-full"
+                >
+                  {news.title}
                   <ChevronRightIcon className="min-w-6 min-h-6 text-cyan-700 ml-2" />
-                </div>
+                </Link>
               </div>
             )),
           )}
