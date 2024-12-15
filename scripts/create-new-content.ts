@@ -2,20 +2,29 @@ import fs from 'fs'
 import path from 'path'
 import { promisify } from 'util'
 
-import { input } from '@inquirer/prompts'
+import { input, select } from '@inquirer/prompts'
 import { v4 as uuidv4 } from 'uuid'
 import yargs from 'yargs'
 
 const askQuestions = async () => {
+  const content = await select({
+    message: 'コンテンツの種類を選択してください (news or article): ',
+    choices: ['news', 'article'],
+  })
   const date = await input({
     message: 'ニュースを作成する日付を入力してください (YYYY-MM-DD): ',
   })
 
-  return { date }
+  return { content, date }
 }
 
 const argv = yargs(process.argv.slice(2))
   .options({
+    content: {
+      type: 'string',
+      description: 'コンテンツの種類',
+      choices: ['news', 'article'],
+    },
     date: {
       type: 'string',
       description: 'お知らせを作成する日付',
@@ -24,6 +33,7 @@ const argv = yargs(process.argv.slice(2))
   .help().argv
 
 type Options = {
+  content: 'news' | 'article'
   date: Date
 }
 
@@ -34,7 +44,12 @@ const createYYYYMMDD = (date: Date, delimiter = '-'): string => {
   return `${date.getFullYear().toString()}${delimiter}${monthMM}${delimiter}${dayDD}`
 }
 
-const parseArgv = (val: { date: string | undefined }): Options => {
+const parseArgv = (val: { content: string | undefined; date: string | undefined }): Options => {
+  const content = val.content
+  if (!content) {
+    throw new Error('コンテンツの種類を指定してください')
+  }
+
   let date: Date
 
   if (val.date) {
@@ -43,11 +58,12 @@ const parseArgv = (val: { date: string | undefined }): Options => {
     date = new Date()
   }
   return {
+    content,
     date,
   } as Options
 }
 
-const template = fs.readFileSync(path.join(process.cwd(), 'scripts', 'templates', 'news.md')).toString()
+const template = fs.readFileSync(path.join(process.cwd(), 'scripts', 'template.md')).toString()
 
 ;(async () => {
   let options
@@ -58,11 +74,12 @@ const template = fs.readFileSync(path.join(process.cwd(), 'scripts', 'templates'
     // コマンドライン引数がない場合
     const answers = await askQuestions()
     options = {
+      content: answers.content,
       date: new Date(answers.date),
-    }
+    } as Options
   }
 
-  const contentDir = path.join(process.cwd(), 'content', 'news')
+  const contentDir = path.join(process.cwd(), 'content', options.content)
   let distPath = path.join(contentDir, `${createYYYYMMDD(options.date, '-')}.md`)
   let count = 0
 
@@ -71,10 +88,7 @@ const template = fs.readFileSync(path.join(process.cwd(), 'scripts', 'templates'
     distPath = path.join(contentDir, `${createYYYYMMDD(options.date, '-')}_${count.toString().padStart(2, '0')}.md`)
   }
 
-  const replacements: Array<[string, string]> = [
-    ['%{id}', uuidv4()],
-    ['%{date}', createYYYYMMDD(options.date, '/')],
-  ]
+  const replacements: Array<[string, string]> = [['%{id}', uuidv4()]]
 
   let content = template
 

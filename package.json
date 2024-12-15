@@ -19,7 +19,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
-    "create-new-news": "tsx scripts/create-new-news.ts"
+    "create-new-content": "tsx scripts/create-new-content.ts"
   },
   "imports": {
     "#*": "./*",
