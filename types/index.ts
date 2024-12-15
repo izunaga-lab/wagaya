@@ -1,1 +1,2 @@
-export type { Article } from './article'
+export type { Content } from './content'
+export { ContentType } from './content-type'

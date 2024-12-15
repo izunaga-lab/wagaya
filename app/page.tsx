@@ -2,11 +2,12 @@ import { ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { getLatestNews } from '#lib/news'
+import { getLatestContents } from '#lib/content'
 import MoreLink from '@/components/more-link'
 import SectionTitle from '@/components/section-title'
 import { basePath } from '@/lib/base-path'
 import { sectionTitles } from '@/lib/section-title'
+import { ContentType } from '@/types'
 
 export default async function Home() {
   return (
@@ -50,14 +51,14 @@ export default async function Home() {
       <section className="mb-16">
         <SectionTitle title={sectionTitles.news.title} />
         <div className="space-y-6">
-          {getLatestNews(5).then((news) =>
+          {getLatestContents(ContentType.NEWS, 5).then((news) =>
             news.map((news, index) => (
               <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-6">
                 <Link
                   href={`${sectionTitles.news.path}/${news.id}`}
                   className="text-lg hover:underline flex items-center justify-between w-full"
                 >
-                  {news.title}
+                  {news.date.toLocaleDateString()} {news.title}
                   <ChevronRightIcon className="min-w-6 min-h-6 text-cyan-700 ml-2" />
                 </Link>
               </div>
@@ -69,13 +70,20 @@ export default async function Home() {
 
       <section>
         <SectionTitle title={sectionTitles.article.title} />
-        <div className="grid md:grid-cols-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="relative h-64 overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105"
-            ></div>
-          ))}
+        <div className="space-y-6">
+          {getLatestContents(ContentType.ARTICLE, 5).then((articles) =>
+            articles.map((article, index) => (
+              <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-6">
+                <Link
+                  href={`${sectionTitles.article.path}/${article.id}`}
+                  className="text-lg hover:underline flex items-center justify-between w-full"
+                >
+                  {article.date.toLocaleDateString()} {article.title}
+                  <ChevronRightIcon className="min-w-6 min-h-6 text-cyan-700 ml-2" />
+                </Link>
+              </div>
+            )),
+          )}
         </div>
         <MoreLink path={sectionTitles.article.path} />
       </section>
