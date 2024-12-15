@@ -21,6 +21,13 @@
     "test-storybook": "test-storybook",
     "create-new-news": "tsx scripts/create-new-news.ts"
   },
+  "imports": {
+    "#*": "./*",
+    "#lib/news": {
+      "storybook": "./lib/__mock__/news.ts",
+      "default": "./lib/news.ts"
+    }
+  },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.468.0",
