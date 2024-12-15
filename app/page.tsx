@@ -2,13 +2,13 @@ import { ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { getLatestNews } from '#lib/news'
 import MoreLink from '@/components/more-link'
 import SectionTitle from '@/components/section-title'
 import { basePath } from '@/lib/base-path'
-import { getLatestNews } from '@/lib/news'
 import { sectionTitles } from '@/lib/section-title'
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="text-center mb-16">

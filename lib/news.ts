@@ -4,23 +4,18 @@ import path from 'path'
 import { contentDirectory } from './directory'
 import { readMarkdownFile } from './markdown'
 
-type NewsArticle = {
-  id: string
-  title: string
-  date: Date
-  content: string
-}
+import { Article } from '@/types'
 
-const loadNewsArticles = async (): Promise<NewsArticle[]> => {
+const loadNewsArticles = async (): Promise<Article[]> => {
   const files = fs.readdirSync(path.join(contentDirectory, 'news'))
-  const newsArticles: NewsArticle[] = []
+  const newsArticles: Article[] = []
 
   for (const file of files) {
     const filePath = path.join(contentDirectory, 'news', file)
     if (path.extname(file) === '.md') {
       const { data, content } = await readMarkdownFile(filePath)
 
-      const newsArticle: NewsArticle = {
+      const newsArticle: Article = {
         id: data.id || '',
         title: data.title || '',
         date: new Date(path.basename(file, '.md')),
@@ -34,9 +29,9 @@ const loadNewsArticles = async (): Promise<NewsArticle[]> => {
   return newsArticles
 }
 
-let allAscNewsArticles: NewsArticle[]
-let allDescNewsArticles: NewsArticle[]
-export const getAllNews = async (sort: 'asc' | 'desc' = 'desc'): Promise<NewsArticle[]> => {
+let allAscNewsArticles: Article[]
+let allDescNewsArticles: Article[]
+export const getAllNews = async (sort: 'asc' | 'desc' = 'desc'): Promise<Article[]> => {
   if (process.env.NODE_ENV === 'production') {
     allAscNewsArticles ||= await loadNewsArticles()
   } else {
@@ -56,12 +51,12 @@ export const getAllNews = async (sort: 'asc' | 'desc' = 'desc'): Promise<NewsArt
   return allAscNewsArticles
 }
 
-export const getLatestNews = async (count: number): Promise<NewsArticle[]> => {
+export const getLatestNews = async (count: number): Promise<Article[]> => {
   const newsArticles = await getAllNews('desc')
   return newsArticles.slice(0, count)
 }
 
-export const getNewsById = async (id: string): Promise<NewsArticle> => {
+export const getNewsById = async (id: string): Promise<Article> => {
   const newsArticles = await getAllNews()
   const news = newsArticles.find((news) => news.id === id)
   if (!news) {
