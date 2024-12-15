@@ -3,9 +3,10 @@ import Link from 'next/link'
 
 import { getAllContents } from '#lib/content'
 import { sectionTitles } from '@/lib/section-title'
+import { ContentType } from '@/types'
 
 export default async function NewsPage() {
-  const news = await getAllContents('news')
+  const news = await getAllContents(ContentType.NEWS)
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="space-y-6">
