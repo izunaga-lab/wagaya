@@ -70,13 +70,20 @@ export default async function Home() {
 
       <section>
         <SectionTitle title={sectionTitles.article.title} />
-        <div className="grid md:grid-cols-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="relative h-64 overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105"
-            ></div>
-          ))}
+        <div className="space-y-6">
+          {getLatestContents(ContentType.ARTICLE, 5).then((articles) =>
+            articles.map((article, index) => (
+              <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-6">
+                <Link
+                  href={`${sectionTitles.article.path}/${article.id}`}
+                  className="text-lg hover:underline flex items-center justify-between w-full"
+                >
+                  {article.date.toLocaleDateString()} {article.title}
+                  <ChevronRightIcon className="min-w-6 min-h-6 text-cyan-700 ml-2" />
+                </Link>
+              </div>
+            )),
+          )}
         </div>
         <MoreLink path={sectionTitles.article.path} />
       </section>
