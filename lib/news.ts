@@ -34,21 +34,31 @@ const loadNewsArticles = async (): Promise<NewsArticle[]> => {
   return newsArticles
 }
 
-let allNewsArticles: NewsArticle[]
-export const getAllNews = async (): Promise<NewsArticle[]> => {
+let allAscNewsArticles: NewsArticle[]
+let allDescNewsArticles: NewsArticle[]
+export const getAllNews = async (sort: 'asc' | 'desc' = 'desc'): Promise<NewsArticle[]> => {
   if (process.env.NODE_ENV === 'production') {
-    allNewsArticles ||= await loadNewsArticles()
+    allAscNewsArticles ||= await loadNewsArticles()
   } else {
-    allNewsArticles = await loadNewsArticles()
+    allAscNewsArticles = await loadNewsArticles()
   }
 
-  return allNewsArticles
+  if (sort === 'desc') {
+    // .reverse() は破壊的メソッドなので、slice() で新しい配列を作成してから reverse() を呼び出す
+    if (process.env.NODE_ENV === 'production') {
+      allDescNewsArticles ||= allAscNewsArticles.slice().reverse()
+    } else {
+      allDescNewsArticles = allAscNewsArticles.slice().reverse()
+    }
+    return allDescNewsArticles
+  }
+
+  return allAscNewsArticles
 }
 
 export const getLatestNews = async (count: number): Promise<NewsArticle[]> => {
-  const newsArticles = await getAllNews()
-  // getAllNews() は降順で返すので、reverse() で昇順にする
-  return newsArticles.reverse().slice(0, count)
+  const newsArticles = await getAllNews('desc')
+  return newsArticles.slice(0, count)
 }
 
 export const getNewsById = async (id: string): Promise<NewsArticle> => {
