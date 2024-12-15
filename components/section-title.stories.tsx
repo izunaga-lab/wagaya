@@ -1,12 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import meta from './header.stories'
 import SectionTitle from './section-title'
 
-export default {
+const meta = {
   title: 'components/SectionTitle',
   component: SectionTitle,
 } satisfies Meta<typeof SectionTitle>
+
+export default meta
 
 type StoryFn = StoryObj<typeof meta>
 

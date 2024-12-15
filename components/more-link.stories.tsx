@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import meta from './header.stories'
 import MoreLink from './more-link'
 
-export default {
+const meta = {
   title: 'components/MoreLink',
   component: MoreLink,
 } satisfies Meta<typeof MoreLink>
 
+export default meta
 type StoryFn = StoryObj<typeof meta>
 
 export const Default: StoryFn = {
