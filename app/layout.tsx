@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="ja" className={notoSansJP.variable}>
       <body className="bg-white text-gray-900">
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-[calc(100vh-10rem)]">{children}</main>
         <Footer />
       </body>
     </html>
