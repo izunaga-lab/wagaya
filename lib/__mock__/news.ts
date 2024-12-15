@@ -1,9 +1,9 @@
 import { fn } from '@storybook/test'
 
-import { Article } from '@/types'
+import { Content } from '@/types'
 
-export const getLatestNews = fn(async (): Promise<Article[]> => {
-  const articles: Article[] = [
+export const getLatestNews = fn(async (): Promise<Content[]> => {
+  const contents: Content[] = [
     {
       id: '1',
       title: '2024/12/15 お知らせ1',
@@ -35,5 +35,5 @@ export const getLatestNews = fn(async (): Promise<Article[]> => {
       content: 'お知らせ5の内容',
     },
   ]
-  return articles
+  return contents
 }).mockName('getLatestNews')

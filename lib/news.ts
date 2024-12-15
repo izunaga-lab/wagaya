@@ -4,61 +4,61 @@ import path from 'path'
 import { contentDirectory } from './directory'
 import { readMarkdownFile } from './markdown'
 
-import { Article } from '@/types'
+import { Content } from '@/types'
 
-const loadNewsArticles = async (): Promise<Article[]> => {
+const loadNewsContents = async (): Promise<Content[]> => {
   const files = fs.readdirSync(path.join(contentDirectory, 'news'))
-  const newsArticles: Article[] = []
+  const newsContents: Content[] = []
 
   for (const file of files) {
     const filePath = path.join(contentDirectory, 'news', file)
     if (path.extname(file) === '.md') {
       const { data, content } = await readMarkdownFile(filePath)
 
-      const newsArticle: Article = {
+      const newsContent: Content = {
         id: data.id || '',
         title: data.title || '',
         date: new Date(path.basename(file, '.md')),
         content,
       }
 
-      newsArticles.push(newsArticle)
+      newsContents.push(newsContent)
     }
   }
 
-  return newsArticles
+  return newsContents
 }
 
-let allAscNewsArticles: Article[]
-let allDescNewsArticles: Article[]
-export const getAllNews = async (sort: 'asc' | 'desc' = 'desc'): Promise<Article[]> => {
+let allAscNewsContents: Content[]
+let allDescNewsContents: Content[]
+export const getAllNews = async (sort: 'asc' | 'desc' = 'desc'): Promise<Content[]> => {
   if (process.env.NODE_ENV === 'production') {
-    allAscNewsArticles ||= await loadNewsArticles()
+    allAscNewsContents ||= await loadNewsContents()
   } else {
-    allAscNewsArticles = await loadNewsArticles()
+    allAscNewsContents = await loadNewsContents()
   }
 
   if (sort === 'desc') {
     // .reverse() は破壊的メソッドなので、slice() で新しい配列を作成してから reverse() を呼び出す
     if (process.env.NODE_ENV === 'production') {
-      allDescNewsArticles ||= allAscNewsArticles.slice().reverse()
+      allDescNewsContents ||= allAscNewsContents.slice().reverse()
     } else {
-      allDescNewsArticles = allAscNewsArticles.slice().reverse()
+      allDescNewsContents = allAscNewsContents.slice().reverse()
     }
-    return allDescNewsArticles
+    return allDescNewsContents
   }
 
-  return allAscNewsArticles
+  return allAscNewsContents
 }
 
-export const getLatestNews = async (count: number): Promise<Article[]> => {
-  const newsArticles = await getAllNews('desc')
-  return newsArticles.slice(0, count)
+export const getLatestNews = async (count: number): Promise<Content[]> => {
+  const newsContents = await getAllNews('desc')
+  return newsContents.slice(0, count)
 }
 
-export const getNewsById = async (id: string): Promise<Article> => {
-  const newsArticles = await getAllNews()
-  const news = newsArticles.find((news) => news.id === id)
+export const getNewsById = async (id: string): Promise<Content> => {
+  const newsContents = await getAllNews()
+  const news = newsContents.find((news) => news.id === id)
   if (!news) {
     throw new Error('News not found')
   }
