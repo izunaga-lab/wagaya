@@ -7,6 +7,7 @@ import MoreLink from '@/components/more-link'
 import SectionTitle from '@/components/section-title'
 import { basePath } from '@/lib/base-path'
 import { sectionTitles } from '@/lib/section-title'
+import { ContentType } from '@/types'
 
 export default async function Home() {
   return (
@@ -50,7 +51,7 @@ export default async function Home() {
       <section className="mb-16">
         <SectionTitle title={sectionTitles.news.title} />
         <div className="space-y-6">
-          {getLatestContents('news', 5).then((news) =>
+          {getLatestContents(ContentType.NEWS, 5).then((news) =>
             news.map((news, index) => (
               <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-6">
                 <Link

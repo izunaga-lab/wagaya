@@ -34,34 +34,43 @@ let allDescArticles: Content[]
 let allAscNews: Content[]
 let allDescNews: Content[]
 
-export const getAllContents = async (contentType: ContentType, sort: 'asc' | 'desc' = 'desc'): Promise<Content[]> => {
-  let contents: Content[] = []
-  if (process.env.NODE_ENV === 'production') {
-    if (contentType === 'article') {
-      allAscArticles ||= await loadContents(contentType)
-      contents = allAscArticles
-    } else if (contentType === 'news') {
-      allAscNews ||= await loadContents(contentType)
-      contents = allAscNews
-    }
-  } else {
-    contents = await loadContents(contentType)
+const getCachedContents = async (contentType: ContentType): Promise<Content[]> => {
+  if (contentType === ContentType.ARTICLE) {
+    return (allAscArticles ||= await loadContents(contentType))
+  } else if (contentType === ContentType.NEWS) {
+    return (allAscNews ||= await loadContents(contentType))
   }
+  return []
+}
+
+const getSortedContents = (contents: Content[], sort: 'asc' | 'desc'): Content[] => {
+  return sort === 'desc' ? contents.slice().reverse() : contents
+}
+
+const getCachedSortedContents = async (contentType: ContentType, sort: 'asc' | 'desc' = 'desc'): Promise<Content[]> => {
+  const contents = await getCachedContents(contentType)
 
   if (sort === 'desc') {
-    // .reverse() は破壊的メソッドなので、slice() で新しい配列を作成してから reverse() を呼び出す
-    if (process.env.NODE_ENV === 'production') {
-      if (contentType === 'article') {
-        allDescArticles ||= contents.slice().reverse()
-        contents = allDescArticles
-      } else if (contentType === 'news') {
-        allDescNews ||= contents.slice().reverse()
-        contents = allDescNews
-      }
-    } else {
-      contents = contents.slice().reverse()
+    if (contentType === ContentType.ARTICLE) {
+      return (allDescArticles ||= getSortedContents(contents, sort))
+    } else if (contentType === ContentType.NEWS) {
+      return (allDescNews ||= getSortedContents(contents, sort))
     }
   }
+
+  return contents
+}
+
+export const getAllContents = async (contentType: ContentType, sort: 'asc' | 'desc' = 'desc'): Promise<Content[]> => {
+  let contents: Content[] = []
+
+  if (process.env.NODE_ENV === 'production') {
+    contents = await getCachedSortedContents(contentType, sort)
+  } else {
+    contents = await loadContents(contentType)
+    contents = getSortedContents(contents, sort)
+  }
+
   return contents
 }
 

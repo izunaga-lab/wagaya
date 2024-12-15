@@ -1,1 +1,4 @@
-export type ContentType = 'news' | 'article'
+export enum ContentType {
+  NEWS = 'news',
+  ARTICLE = 'article',
+}
