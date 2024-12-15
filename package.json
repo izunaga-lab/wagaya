@@ -23,9 +23,9 @@
   },
   "imports": {
     "#*": "./*",
-    "#lib/news": {
-      "storybook": "./lib/__mock__/news.ts",
-      "default": "./lib/news.ts"
+    "#lib/content": {
+      "storybook": "./lib/__mock__/content.ts",
+      "default": "./lib/content.ts"
     }
   },
   "dependencies": {

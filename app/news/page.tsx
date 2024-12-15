@@ -1,11 +1,11 @@
 import { ChevronRightIcon } from 'lucide-react'
 import Link from 'next/link'
 
-import { getAllNews } from '@/lib/news'
+import { getAllContents } from '#lib/content'
 import { sectionTitles } from '@/lib/section-title'
 
 export default async function NewsPage() {
-  const news = await getAllNews()
+  const news = await getAllContents('news')
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="space-y-6">

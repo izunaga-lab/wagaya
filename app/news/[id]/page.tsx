@@ -1,9 +1,9 @@
+import { getAllContents, getContentById } from '#lib/content'
 import { MarkdownContainer } from '@/components/markdown-container'
-import { getAllNews, getNewsById } from '@/lib/news'
 
 export default async function NewsDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const news = await getNewsById(id)
+  const news = await getContentById('news', id)
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="mb-8 text-4xl font-extrabold">{news.title}</h1>
@@ -13,6 +13,6 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
 }
 
 export async function generateStaticParams() {
-  const newsArticles = await getAllNews()
+  const newsArticles = await getAllContents('news')
   return newsArticles.map((newsArticle) => ({ id: newsArticle.id }))
 }
