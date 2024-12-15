@@ -45,6 +45,12 @@ export const getAllNews = async (): Promise<NewsArticle[]> => {
   return allNewsArticles
 }
 
+export const getLatestNews = async (count: number): Promise<NewsArticle[]> => {
+  const newsArticles = await getAllNews()
+  // getAllNews() は降順で返すので、reverse() で昇順にする
+  return newsArticles.reverse().slice(0, count)
+}
+
 export const getNewsById = async (id: string): Promise<NewsArticle> => {
   const newsArticles = await getAllNews()
   const news = newsArticles.find((news) => news.id === id)

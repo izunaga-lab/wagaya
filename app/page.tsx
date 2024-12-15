@@ -1,8 +1,11 @@
+import { ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import MoreLink from '@/components/more-link'
 import SectionTitle from '@/components/section-title'
 import { basePath } from '@/lib/base-path'
+import { getLatestNews } from '@/lib/news'
 import { sectionTitles } from '@/lib/section-title'
 
 export default function Home() {
@@ -47,19 +50,18 @@ export default function Home() {
       <section className="mb-16">
         <SectionTitle title={sectionTitles.news.title} />
         <div className="space-y-6">
-          {[
-            { date: '2023/06/15', title: '国際会議INFORMS 2023での研究発表が採択されました' },
-            { date: '2023/05/20', title: '新しい最適化アルゴリズムの論文がJournal of ORに掲載されました' },
-            { date: '2023/04/01', title: '2023年度の新入生歓迎会を開催しました' },
-          ].map((news, index) => (
-            <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-4">
-              <div className="flex-shrink-0 w-24 text-gray-500">{news.date}</div>
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold">{news.title}</h3>
-                <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          {getLatestNews(5).then((news) =>
+            news.map((news, index) => (
+              <div key={index} className="flex items-start border-b border-dashed border-gray-200 pb-6">
+                <div className="flex items-center justify-between w-full">
+                  <Link href={`${sectionTitles.news.path}/${news.id}`} className="text-lg hover:underline">
+                    {news.title}
+                  </Link>
+                  <ChevronRightIcon className="min-w-6 min-h-6 text-cyan-700 ml-2" />
+                </div>
               </div>
-            </div>
-          ))}
+            )),
+          )}
         </div>
         <MoreLink path={sectionTitles.news.path} />
       </section>
