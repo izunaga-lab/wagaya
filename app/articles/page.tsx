@@ -16,7 +16,7 @@ export default async function ArticlePage() {
               href={`${sectionTitles.article.path}/${article.id}`}
               className="text-lg hover:underline flex items-center justify-between w-full"
             >
-              {article.date.toLocaleDateString()} {article.title}
+              {article.date.toLocaleDateString('ja-JP')} {article.title}
               <ChevronRightIcon className="min-w-6 min-h-6 text-cyan-700 ml-2" />
             </Link>
           </div>
