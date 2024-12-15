@@ -6,7 +6,7 @@ export default async function NewsPage({ params }: { params: Promise<{ id: strin
   const news = await getNewsById(id)
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="mb-8 text-3xl font-extrabold">{news.title}</h1>
+      <h1 className="mb-8 text-4xl font-extrabold">{news.title}</h1>
       <MarkdownContainer markdown={news.content} />
     </div>
   )
