@@ -51,7 +51,7 @@ const template = fs.readFileSync(path.join(process.cwd(), 'scripts', 'templates'
 
 ;(async () => {
   let options
-  if (process.argv.length > 1) {
+  if (process.argv.length > 2) {
     // コマンドライン引数がある場合
     options = parseArgv(await argv)
   } else {
