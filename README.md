@@ -30,6 +30,18 @@
     - デフォルトポート `6006` で起動します
     - ブラウザで `http://localhost:6006` にアクセスしてください
 
+## 記事の作成
+1. `content` ディレクトリに記事を作成します
+    ```bash
+    pnpm new-content --content <news or article> --date <YYYY-MM-DD>
+    ```
+    - `news` はニュース記事
+    - `article` は記事
+    - `date` は記事の日付
+2. 記事の内容を作成します
+    - 1. で作成されたファイルに記事の内容を作成します
+    - 記事の内容はMarkdown形式で作成します
+
 ## ビルド
 
 ```bash
