@@ -50,7 +50,7 @@
     "@storybook/test": "8.4.7",
     "@storybook/test-runner": "^0.21.0",
     "@types/node": "^22.10.5",
-    "@types/react": "^19.0.3",
+    "@types/react": "^19.0.4",
     "@types/react-dom": "^19.0.2",
     "@types/yargs": "^17.0.33",
     "eslint": "^8.57.1",
