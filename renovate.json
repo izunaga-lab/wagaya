@@ -1,6 +1,7 @@
 {
   "extends": [
     ":timezone(Asia/Tokyo)",
+    "group:monorepos",
     ":widenPeerDependencies",
     ":label(renovate)",
     ":semanticCommitScopeDisabled",
@@ -26,6 +27,7 @@
           "devDependencies"
         ],
         "matchUpdateTypes": [
+          "minor",
           "patch"
         ],
         "automerge": true
