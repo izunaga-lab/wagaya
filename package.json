@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.4",
-    "@inquirer/prompts": "^7.2.3",
+    "@inquirer/prompts": "^7.2.4",
     "@storybook/addon-essentials": "8.5.2",
     "@storybook/addon-interactions": "8.5.2",
     "@storybook/addon-onboarding": "8.5.2",
