@@ -16,9 +16,10 @@ export const PageHeadingArea = ({ title, iconName }: Props) => {
       <div className="container mx-auto px-4 -mt-10 mb-4">
         <div className="bg-white shadow-lg rounded-lg text-3xl font-extrabold p-6 flex items-center">
           <LucideIcon className="text-cyan-700 min-w-10 min-h-10" />
-          <span className="ml-4">{title}</span>
+          <h1 className="ml-4">{title}</h1>
         </div>
       </div>
     </>
+
   )
 }
