@@ -31,8 +31,8 @@ export default function Header() {
             <Link href={sectionTitles.article.path} className="nav-link" id="articles-link">
               記事
             </Link>
-            <Link href={sectionTitles.contact.path} className="nav-link" id="contact-link">
-              {sectionTitles.contact.title}
+            <Link href={sectionTitles.member.path} className="nav-link" id="member-link">
+              {sectionTitles.member.title}
             </Link>
           </div>
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -55,8 +55,8 @@ export default function Header() {
             <Link href={sectionTitles.article.path} className="block px-3 py-2 nav-link">
               {sectionTitles.article.title}
             </Link>
-            <Link href={sectionTitles.contact.path} className="block px-3 py-2 nav-link">
-              {sectionTitles.contact.title}
+            <Link href={sectionTitles.member.path} className="block px-3 py-2 nav-link">
+              {sectionTitles.member.title}
             </Link>
           </div>
         </div>
