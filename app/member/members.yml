@@ -1,0 +1,10 @@
+bachelor:
+  third_year:
+    - name: '山田 太郎'
+  fourth_year:
+    - name: '佐藤 花子'
+master:
+  first_year:
+    - name: '鈴木 次郎'
+  second_year:
+    - name: '田中 美咲'
