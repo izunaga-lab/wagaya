@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Install corepack latest
+        run: npm install -g corepack@latest
       - name: Corepack enable
         run: corepack enable
       - name: Setup Node
