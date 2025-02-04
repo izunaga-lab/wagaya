@@ -2,7 +2,7 @@
   "name": "wagaya",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.2.0",
   "engines": {
     "node": "22.13.1"
   },
