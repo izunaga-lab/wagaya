@@ -31,7 +31,7 @@ importers:
         version: 9.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-markdown:
         specifier: ^9.0.3
-        version: 9.0.3(@types/react@19.0.8)(react@19.0.0)
+        version: 9.0.3(@types/react@19.0.12)(react@19.0.0)
     devDependencies:
       '@chromatic-com/storybook':
         specifier: 3.2.4
@@ -41,7 +41,7 @@ importers:
         version: 7.2.4(@types/node@22.13.0)
       '@storybook/addon-essentials':
         specifier: 8.5.3
-        version: 8.5.3(@types/react@19.0.8)(storybook@8.5.3(prettier@3.4.2))
+        version: 8.5.3(@types/react@19.0.12)(storybook@8.5.3(prettier@3.4.2))
       '@storybook/addon-interactions':
         specifier: 8.5.3
         version: 8.5.3(storybook@8.5.3(prettier@3.4.2))
@@ -76,11 +76,11 @@ importers:
         specifier: ^22.13.0
         version: 22.13.0
       '@types/react':
-        specifier: ^19.0.8
-        version: 19.0.8
+        specifier: ^19.0.12
+        version: 19.0.12
       '@types/react-dom':
         specifier: ^19.0.3
-        version: 19.0.3(@types/react@19.0.8)
+        version: 19.0.3(@types/react@19.0.12)
       '@types/yargs':
         specifier: ^17.0.33
         version: 17.0.33
@@ -122,7 +122,7 @@ importers:
         version: 4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.3(prettier@3.4.2))
       tailwindcss:
         specifier: ^4.0.0
-        version: 4.0.0
+        version: 4.0.3
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
@@ -1978,8 +1978,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.0.8':
-    resolution: {integrity: sha512-9P/o1IGdfmQxrujGbIMDyYaaCykhLKc0NGCtYcECNUr9UAaDe4gwvV9bR6tvd5Br1SG0j+PBpbKr2UYY8CwqSw==}
+  '@types/react@19.0.12':
+    resolution: {integrity: sha512-V6Ar115dBDrjbtXSrS+/Oruobc+qVbbUxDFC1RSbRqLt5SYvxxyIDrSC85RWml54g+jfNeEMZhEj7wW07ONQhA==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -3011,10 +3011,6 @@ packages:
 
   endent@2.1.0:
     resolution: {integrity: sha512-r8VyPX7XL8U01Xgnb1CjZ3XV+z90cXIJ9JPE/R9SEC9vpw2P6CfsRPJmp20DppC5N7ZAMCmjYkJIa744Iyg96w==}
-
-  enhanced-resolve@5.17.1:
-    resolution: {integrity: sha512-LMHl3dXhTcfv8gM4kEzIUeTQ+7fpdA0l2tUf34BddXPkz2A5xJ5L/Pchd5BL6rdccM9QGvu0sWZzK1Z1t4wwyg==}
-    engines: {node: '>=10.13.0'}
 
   enhanced-resolve@5.18.0:
     resolution: {integrity: sha512-0/r0MySGYG8YqlayBZ6MuCfECmHFdJ5qyPh8s8wa5Hnm6SaFLSK1VYCbj+NKp090Nm1caZhD+QTnmxO7esYGyQ==}
@@ -7331,10 +7327,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mdx-js/react@3.1.0(@types/react@19.0.8)(react@18.3.1)':
+  '@mdx-js/react@3.1.0(@types/react@19.0.12)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.0.8
+      '@types/react': 19.0.12
       react: 18.3.1
 
   '@next/env@15.1.6': {}
@@ -7441,9 +7437,9 @@ snapshots:
       storybook: 8.5.3(prettier@3.4.2)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.5.3(@types/react@19.0.8)(storybook@8.5.3(prettier@3.4.2))':
+  '@storybook/addon-docs@8.5.3(@types/react@19.0.12)(storybook@8.5.3(prettier@3.4.2))':
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@19.0.8)(react@18.3.1)
+      '@mdx-js/react': 3.1.0(@types/react@19.0.12)(react@18.3.1)
       '@storybook/blocks': 8.5.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.3(prettier@3.4.2))
       '@storybook/csf-plugin': 8.5.3(storybook@8.5.3(prettier@3.4.2))
       '@storybook/react-dom-shim': 8.5.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.3(prettier@3.4.2))
@@ -7454,12 +7450,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.5.3(@types/react@19.0.8)(storybook@8.5.3(prettier@3.4.2))':
+  '@storybook/addon-essentials@8.5.3(@types/react@19.0.12)(storybook@8.5.3(prettier@3.4.2))':
     dependencies:
       '@storybook/addon-actions': 8.5.3(storybook@8.5.3(prettier@3.4.2))
       '@storybook/addon-backgrounds': 8.5.3(storybook@8.5.3(prettier@3.4.2))
       '@storybook/addon-controls': 8.5.3(storybook@8.5.3(prettier@3.4.2))
-      '@storybook/addon-docs': 8.5.3(@types/react@19.0.8)(storybook@8.5.3(prettier@3.4.2))
+      '@storybook/addon-docs': 8.5.3(@types/react@19.0.12)(storybook@8.5.3(prettier@3.4.2))
       '@storybook/addon-highlight': 8.5.3(storybook@8.5.3(prettier@3.4.2))
       '@storybook/addon-measure': 8.5.3(storybook@8.5.3(prettier@3.4.2))
       '@storybook/addon-outline': 8.5.3(storybook@8.5.3(prettier@3.4.2))
@@ -8044,11 +8040,11 @@ snapshots:
 
   '@types/parse-json@4.0.2': {}
 
-  '@types/react-dom@19.0.3(@types/react@19.0.8)':
+  '@types/react-dom@19.0.3(@types/react@19.0.12)':
     dependencies:
-      '@types/react': 19.0.8
+      '@types/react': 19.0.12
 
-  '@types/react@19.0.8':
+  '@types/react@19.0.12':
     dependencies:
       csstype: 3.1.3
 
@@ -9233,11 +9229,6 @@ snapshots:
       fast-json-parse: 1.0.3
       objectorarray: 1.0.5
 
-  enhanced-resolve@5.17.1:
-    dependencies:
-      graceful-fs: 4.2.11
-      tapable: 2.2.1
-
   enhanced-resolve@5.18.0:
     dependencies:
       graceful-fs: 4.2.11
@@ -9453,7 +9444,7 @@ snapshots:
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.4.0
-      enhanced-resolve: 5.17.1
+      enhanced-resolve: 5.18.0
       eslint: 8.57.1
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
@@ -11777,10 +11768,10 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-markdown@9.0.3(@types/react@19.0.8)(react@19.0.0):
+  react-markdown@9.0.3(@types/react@19.0.12)(react@19.0.0):
     dependencies:
       '@types/hast': 3.0.4
-      '@types/react': 19.0.8
+      '@types/react': 19.0.12
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.3.2
       html-url-attributes: 3.0.1
@@ -12479,7 +12470,7 @@ snapshots:
   tsconfig-paths-webpack-plugin@4.2.0:
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.17.1
+      enhanced-resolve: 5.18.0
       tapable: 2.2.1
       tsconfig-paths: 4.2.0
 
@@ -12742,7 +12733,7 @@ snapshots:
       acorn: 8.14.0
       browserslist: 4.24.2
       chrome-trace-event: 1.0.4
-      enhanced-resolve: 5.17.1
+      enhanced-resolve: 5.18.0
       es-module-lexer: 1.5.4
       eslint-scope: 5.1.1
       events: 3.3.0
